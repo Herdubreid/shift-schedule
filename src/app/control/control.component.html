@@ -1,0 +1,20 @@
+<mat-nav-list>
+  <mat-list-item (click)="toggleRun()">
+    {{ (running | async) ? 'Stop' : 'Start' }}
+  </mat-list-item>
+  <mat-list-item (click)="editShift()">
+    Edit Shift
+  </mat-list-item>
+  <mat-list-item (click)="editSite()">
+    Edit Site
+  </mat-list-item>
+  <mat-list-item (click)="addSerie()">
+    Add Serie
+  </mat-list-item>
+  <mat-list-item (click)="edit()">
+    Edit
+  </mat-list-item>
+  <mat-list-item item (click)="home()">
+    Display
+  </mat-list-item>
+</mat-nav-list>

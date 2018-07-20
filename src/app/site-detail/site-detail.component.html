@@ -1,0 +1,29 @@
+<h3 mat-dialog-header>Site Detail</h3>
+<form [formGroup]="form" (ngSubmit)="ok()">
+  <mat-dialog-content>
+    <div>
+      <mat-form-field>
+        <input matInput required formControlName="name" (blur)="blur()" [matAutocomplete]="auto" placeholder="Name">
+        <mat-error>Can't be blank or duplicate</mat-error>
+      </mat-form-field>
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let each of filter | async" [value]="each.name">
+          {{ each.name }}
+        </mat-option>
+      </mat-autocomplete>
+    </div>
+    <div>
+      <mat-form-field>
+        <mat-select placeholder="Shifts" formControlName="shifts" multiple>
+          <mat-option *ngFor="let each of shifts" [value]="each.name">
+            {{ each.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-button [disabled]="!form.valid" type="submit">Ok</button>
+    <button mat-button mat-dialog-close>Cancel</button>
+  </mat-dialog-actions>
+</form>
